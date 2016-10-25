@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+#but_excel {    
+    position: fixed; 
+    top:16px; 
+    right:0; 
+    z-index:499;
+} 
+.checked {
+    color: #F8CA03;
+}
+
+.total {
+    font-family: 'Segoe UI', Roboto, sans-serif, Helvetica, Arial;
+    font-size: 18px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.sync {
+    position: fixed; 
+    top:0; 
+    right:0; 
+    z-index:490;
+    font-family: 'Segoe UI', Roboto, sans-serif, Helvetica, Arial;
+    font-size: 10px;
+    margin-bottom: -14px;
+    padding-left: 4px;
+}
+
+
+body {
+    height: 100%;
+    padding: 10px;
+    color: #262626;
+    font-family: 'Helvetica Neue Light', 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif, Arial;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+h1 {
+    margin: 0 0 0 0;
+    font-size: 24px;
+    font-family: 'Helvetica Neue Light', 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif, Arial;
+    font-weight: 300;
+}
+
+a {
+    color: #00B7FF;
+}
+
+.ui-widget *, .ui-widget input, .ui-widget select, .ui-widget button {
+    font-family: 'Helvetica Neue Light', 'Open Sans', Helvetica;
+    font-size: 14px;
+    font-weight: 300 !important;
+}
+
+.details-form-field input,
+.details-form-field select {
+    width: 250px;
+    float: right;
+}
+
+.details-form-field {
+    margin: 15px 0;
+}
+
+.details-form-field:first-child {
+    margin-top: 10px;
+}
+
+.details-form-field:last-child {
+    margin-bottom: 10px;
+}
+
+.details-form-field button {
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
+
+input.error, select.error {
+    border: 1px solid #ff9999;
+    background: #ffeeee;
+}
+
+label.error {
+    float: right;
+    margin-left: 100px;
+    font-size: .8em;
+    color: #ff6666;
+}
+
+
+
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+button.save {
+  padding: 8px 22px 8px 22px;
+  color: #FFF;
+  background-color: #4bc970;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 4px;
+}
+
+fieldset {
+  margin-bottom: 13px;
+  border: none;
+}
+
+legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+label {
+  
+  margin-bottom: 8px;
+}
+
+label.light {
+  font-weight: 300;
+  display: inline;
+}
+
+.number {
+  background-color: #5fcf80;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+
+#editkoefDialog span.label
+{
+    display: inline-block;
+    float: left;
+    width: 180px;
+    padding-left: 15px;
+}
+    
+#editkoefDialog input.koef_ya,
+#editkoefDialog input.koef_gett
+{
+    width: 48%;
+        box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+    
+}
