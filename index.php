@@ -29,6 +29,7 @@ echo '<!DOCTYPE html>
 		<li><a href="view/diag.total.php" target="index">Total</a></li>
 		<li><a href="view/sip.registry.php" target="index">Sip Registry</a></li>
 		<li><a href="view/sip.peers.php" target="index">Sip Peers</a></li>
+		<li><a href="view/sip.channelstats.php" target="index">Channel Stats</a></li>
 		</ul>
 	    </li>
 

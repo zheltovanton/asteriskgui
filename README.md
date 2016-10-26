@@ -1,6 +1,6 @@
 # Asterisk.GUI
 
- This is the Javascript / HTML / CSS related to asterisk app. .
+ This is the Javascript / HTML / CSS related to asterisk app.
 
 # Up and Running
 
