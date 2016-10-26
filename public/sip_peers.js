@@ -24,10 +24,14 @@ $(function() {
                 loadData: function(filter) {
                     return $.ajax({
                         type: "GET",
-                        url: "db/set/peers",
+                        url: "../db/diag/sip_peers",
                         data: filter,
 			success:function(data) {
 			    	json_data = data;  //store to global var for exporting
+
+ 				var counter = data.length;
+
+				$("#total").text("Peers: " + counter);
       			}
                     });
                 }

@@ -14,27 +14,28 @@ echo '<!DOCTYPE html>
     <div class="navigation">
         <h1>Asterisk</h1>
         <ul>
-            <li>Report
+            <li>Report 
 		<ul>
-		<li><a href="rep.total.php" target="index">Total</a></li>
+		<li><a href="view/rep.cdr.php" target="index">Call records</a></li>
 		</ul>
 	   </li>
             <li>Settings 
 		<ul>
-		<li><a href="set.trunks.php" target="index">Trunks</a></li>
-		<li><a href="set.peers.php" target="index">Peers</a></li>
+		<li><a href="view/sip.users.php" target="index">Sip users</a></li>
 		</ul>
 	    </li>
             <li>Diagnostics 
 		<ul>
-		<li><a href="diag.total.php" target="index">Total</a></li>
+		<li><a href="view/diag.total.php" target="index">Total</a></li>
+		<li><a href="view/sip.registry.php" target="index">Sip Registry</a></li>
+		<li><a href="view/sip.peers.php" target="index">Sip Peers</a></li>
 		</ul>
 	    </li>
 
         </ul>
     </div>
     <div class="index-frame">
-        <iframe name="index" src="rep.total.php"></iframe>
+        <iframe name="index" src="view/rep.cdr.php"></iframe>
     </div>
 </body>
 </html>';

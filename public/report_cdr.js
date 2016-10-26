@@ -6,31 +6,10 @@ $(function() {
     $("#but_excel a").click(function() {
     	JSONToCSVConvertor(json_data, "CDR Report", true);
     });
- 
-    // эта функция сохраняет изменения если нажать ентер и отменяет если нажать esc
-    $(document).keyup(function(e) {
-        if (e.keyCode == 27)
-            $("#setting").jsGrid("cancelEdit");
-
-        if(e.keyCode == 13)
-            $("#setting").jsGrid("updateItem");
-        return false;
-    });
-
-    // сохраняем изменения если кликнуть на другую строку
-    var baseEditItem = jsGrid.Grid.prototype.editItem;
-    
-    jsGrid.Grid.prototype.editItem = function() {
-        if(this._editingRow) {
-            this.updateItem();
-        }
-        baseEditItem.apply(this, arguments);
-    };
-
 
 	DATA = null;	
 
-        $("#report_total").jsGrid({
+        $("#content").jsGrid({
             height: "93%",
             width: "100%",
             filtering: true,
@@ -46,7 +25,7 @@ $(function() {
                 loadData: function(filter) {
                     return $.ajax({
                         type: "GET",
-                        url: "db/report/total/",
+                        url: "../db/report/cdr/",
                         data: filter,
 			success:function(data) {
 			    	json_data = data;  //store to global var for exporting

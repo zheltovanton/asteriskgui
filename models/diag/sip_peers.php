@@ -2,36 +2,7 @@
 
 include dirname(__FILE__)."/../../db/asterisk.php";
 
-class SetPeers {
-	public $clid;
-	public $name;
-	public $ip;
-	public $secret;
-	public $useragent;
-	public $context;
-}
-
-class SetPeerRepository {
-
-    protected $db;
-
-
-    public function __construct(PDO $db) {
-        $this->db = $db;
-    }
-
-     private function read($row) {
-        $result = new SetPeers();
-
-        $result->clid = $row["clid"];
-        $result->name = $row["name"];
-        $result->ip = $row["ip"];
-    	$result->secret = $row["secret"];
-    	$result->useragent = $row["useragent"];
-    	$result->context = $row["context"];
-
-	return $result;
-    }
+class SipPeerRepository {
 
     public function getAll($filter) {
 	// filter vars

@@ -3,17 +3,17 @@
 require_once 'header.php';   
 
 echo '
-<script src="public/report_total.js"></script>
+<script src="../public/sip_peers.js"></script>
 
 <header>
-    <h1>Report total</h1>
+    <h1>Sip peers</h1>
 </header>
 <div id="but_excel"> 
-	<a href="#"><img src="public/css/images/csv-icon.png"></a>
+	<a href="#"><img src="../public/css/images/csv-icon.png"></a>
 </div> 
 <div id="total" class="total"></div>
 
-<div id="report_total"></div>
+<div id="content"></div>
 ';
 
 require 'footer.php';

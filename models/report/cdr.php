@@ -1,6 +1,6 @@
 <?php
 
-class ReportTotal {
+class ReportCdr {
 	public $calldate;
 	public $clid;
 	public $src;
@@ -11,7 +11,7 @@ class ReportTotal {
 	public $disposition;
 }
 
-class ReportTotalRepository {
+class ReportCdrRepository {
 
     protected $db;
 
@@ -21,7 +21,7 @@ class ReportTotalRepository {
     }
 
      private function read($row) {
-        $result = new ReportTotal();
+        $result = new ReportCdr();
 
         $result->calldate = $row["calldate"];
         $result->clid = $row["clid"];

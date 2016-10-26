@@ -1,17 +1,17 @@
 <?php
-include "../../../models/set/peers.php";
+include "../../../models/diag/sip_peers.php";
 $config = include("../../config.php");
 
-$db = new PDO($config["db"], $config["username"], $config["password"], $config["options"]);
+//$db = new PDO($config["db"], $config["username"], $config["password"], $config["options"]);
 
-error_reporting(E_ALL); 
+//error_reporting(E_ALL); 
 
-$setpeer = new SetPeerRepository($db);
-error_log("ast: call command ".PHP_EOL);
+$sippeer = new SipPeerRepository();
+//error_log("ast: call command ".PHP_EOL);
 
 switch($_SERVER["REQUEST_METHOD"]) {
     case "GET":
-        $result = $setpeer->getAll(
+        $result = $sippeer->getAll(
             array("clid" => $_GET["clid"],
  		"ip" => $_GET["ip"],
 		"port" => $_GET["port"],

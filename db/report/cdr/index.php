@@ -1,11 +1,11 @@
 <?php
-include "../../../models/report/total.php";
+include "../../../models/report/cdr.php";
 
 $config = include("../../config.php");
 
 $db = new PDO($config["db"], $config["username"], $config["password"], $config["options"]);
 
-$report = new ReportTotalRepository($db);
+$report = new ReportCdrRepository($db);
 
 switch($_SERVER["REQUEST_METHOD"]) {
     case "GET":
