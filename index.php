@@ -1,5 +1,12 @@
 <?php
 
+$page = '';
+
+if ($_GET["p"]=='') {
+	$page = 'rep.cdr';
+} else {
+  	$page = $_GET["p"];
+}
 		
 echo '<!DOCTYPE html>
 <html>
@@ -16,27 +23,27 @@ echo '<!DOCTYPE html>
         <ul>
             <li>Report 
 		<ul>
-		<li><a href="view/rep.cdr.php" target="index">Call records</a></li>
+		<li><a href="index.php?p=rep.cdr" >Call records</a></li>
 		</ul>
 	   </li>
             <li>Settings 
 		<ul>
-		<li><a href="view/sip.users.php" target="index">Sip users</a></li>
+		<li><a href="index.php?p=sip.users" >Sip users</a></li>
 		</ul>
 	    </li>
             <li>Diagnostics 
 		<ul>
-		<li><a href="view/diag.total.php" target="index">Total</a></li>
-		<li><a href="view/sip.registry.php" target="index">Sip Registry</a></li>
-		<li><a href="view/sip.peers.php" target="index">Sip Peers</a></li>
-		<li><a href="view/sip.channelstats.php" target="index">Channel Stats</a></li>
+		<li><a href="index.php?p=diag.total" >Total</a></li>
+		<li><a href="index.php?p=sip.registry" >Sip Registry</a></li>
+		<li><a href="index.php?p=sip.peers" >Sip Peers</a></li>
+		<li><a href="index.php?p=sip.channelstats" >Channel Stats</a></li>
 		</ul>
 	    </li>
 
         </ul>
     </div>
     <div class="index-frame">
-        <iframe name="index" src="view/rep.cdr.php"></iframe>
+        <iframe name="index" src="view/'.$page.'.php"></iframe>
     </div>
 </body>
 </html>';
