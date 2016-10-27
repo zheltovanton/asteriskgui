@@ -84,7 +84,7 @@ $(function() {
                 { name: "recordingfile", 
                         itemTemplate: function(value) {
                             if (value) {
-				return $("<a>").attr("href", "download.php?audio="+value).attr("target", "_blank").text("Download");
+				return $("<a>").attr("href", "../download.php?audio="+value).attr("target", "_blank").text("Download");
 			    } else {
 				return "";
 			    }
