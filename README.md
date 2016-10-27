@@ -6,10 +6,11 @@
  - Show sip peers 
  - Show sip registry 
  - Show sip channel stats
+ - Show diag infog from "core show ... "
 
 # Version
 
-Current version 0.001beta
+Current version 0.01beta
  
 # Up and Running
 
