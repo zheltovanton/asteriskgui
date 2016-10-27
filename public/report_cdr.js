@@ -78,7 +78,16 @@ $(function() {
                 { name: "src", title: "From", type: "text", width: 100 },
                 { name: "dst", title: "To", type: "text", width: 100 },
                 { name: "dcontext", title: "Context", type: "text", width: 100 },
-                { name: "disposition", title: "Status", type: "text", width: 100,filtering:false  },
+                { name: "disposition", itemTemplate: function(value) {
+                        var color = "white";
+                        if ((value=='ANSWERED')) {
+                            color = 'rgba(0,150,0,0.4)';
+                        }
+                        if (value=='NO ANSWER') {
+                            color = 'yellow';
+                        }
+                        return $("<div>").addClass("rating").css('background-color', color).append(value);    
+                        }, title: "Status", type: "text", width: 100,filtering:false  },
                 { name: "duration", title: "Duration ", type: "number", width: 60,filtering:false  },
                 { name: "billsec", title: "Answered sec.", type: "number", width: 60,filtering:false  },
                 { name: "recordingfile", 
