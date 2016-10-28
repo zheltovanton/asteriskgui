@@ -12,10 +12,11 @@ $sippeer = new SipPeerRepository();
 switch($_SERVER["REQUEST_METHOD"]) {
     case "GET":
         $result = $sippeer->getAll(
-            array("clid" => $_GET["clid"],
+            array("name" => $_GET["name"],
  		"ip" => $_GET["ip"],
 		"port" => $_GET["port"],
-		"state" => $_GET["state"]));               
+		"state" => $_GET["state"],
+		"desc" => $_GET["desc"]));               
         break;  
 }
 

@@ -37,10 +37,11 @@ $(function() {
                 }
             },
             fields: [
-                { name: "clid", title: "Clid", type: "text", width: 100  },
+                { name: "name", title: "Name", type: "text", width: 100  },
                 { name: "ip", title: "IP", type: "text", width: 100  },
                 { name: "port", title: "Port", type: "text", width: 100  },
-                { name: "state", title: "State", type: "text", width: 100  }
+                { name: "state", title: "State", type: "text", width: 100  },
+                { name: "desc", title: "Description", type: "text", width: 100  }
 
             ],
 	    onDataLoaded: function(data) {
