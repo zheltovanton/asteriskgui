@@ -8,8 +8,7 @@ $config = include("config.php");
 		fputs($socket, "UserName: ".$config["manager_login"]."\r\n");
 		fputs($socket, "Secret: ".$config["manager_password"]."\r\n\r\n");
 
-		fputs($socket, "Action: SIPqualifypeer\r\n\r\n");
-		fputs($socket, "Peer: 110\r\n\r\n");
+		fputs($socket, "Action: CoreShowChannels\r\n\r\n");
                 fputs($socket, "Action: Logoff\r\n\r\n");
 
 		$wrets = "";

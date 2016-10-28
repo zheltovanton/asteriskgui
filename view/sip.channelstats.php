@@ -6,7 +6,7 @@ echo '
 <script src="../public/sip_channelstats.js"></script>
 
 <header>
-    <h1>Sip peers</h1>
+    <h1>Channels stat</h1>
 </header>
 <div id="but_excel"> 
 	<a href="#"><img src="../public/css/images/csv-icon.png"></a>

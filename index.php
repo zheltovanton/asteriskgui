@@ -36,6 +36,7 @@ echo '<!DOCTYPE html>
 		<li><a href="index.php?p=diag.total" >Total</a></li>
 		<li><a href="index.php?p=sip.registry" >Sip Registry</a></li>
 		<li><a href="index.php?p=sip.peers" >Sip Peers</a></li>
+		<li><a href="index.php?p=sip.channels" >Channels</a></li>
 		<li><a href="index.php?p=sip.channelstats" >Channel Stats</a></li>
 		</ul>
 	    </li>
