@@ -42,8 +42,26 @@ $(function() {
                 { name: "duration", title: "Duration", type: "text", width: 100  },
                 { name: "receive", title: "Receive (packet)", type: "text", width: 100  },
                 { name: "lostp", title: "Lost", type: "text", width: 100  },
-                { name: "procentp", title: "%", type: "text", width: 60  },
-                { name: "jitterp", title: "Jitter", type: "text", width: 70  },
+                { name: "procentp", itemTemplate: function(value) {
+                        var color = "white";
+                        if ((value>0)&(value<1)) {
+                            color = 'yellow';
+                        }
+                        if (value>='1') {
+                            color = 'red';
+                        }
+                        return $("<div>").addClass("rating").css('background-color', color).append(value);    
+                        }, title: "%", type: "text", width: 60  },
+                { name: "jitterp",itemTemplate: function(value) {
+                        var color = "white";
+                        if ((value>150)&(value<300)) {
+                            color = 'yellow';
+                        }
+                        if (value>'300') {
+                            color = 'red';
+                        }
+                        return $("<div>").addClass("rating").css('background-color', color).append(value);    
+                        }, title: "Jitter", type: "text", width: 70  },
                 { name: "send", title: "Send (packet)", type: "text", width: 100  },
                 { name: "losts", title: "Lost", type: "text", width: 100  },
                 { name: "procents", title: "%", type: "text", width: 60  },

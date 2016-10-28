@@ -37,7 +37,12 @@ $(function() {
 					
 				}
 				$("#total").text("Channels: " + counter);
-      			}
+      			},
+    				complete: function() {
+      				// Schedule the next request when the current one's complete
+				    
+    				    //setTimeout($("#content").jsGrid("loadData"), 5000);   	
+    			}
                     });
                 }
             },
