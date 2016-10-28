@@ -24,13 +24,9 @@ echo '<!DOCTYPE html>
             <li>Report 
 		<ul>
 		<li><a href="index.php?p=rep.cdr" >Call records</a></li>
+		<li><a href="index.php?p=rep.group.ext.cdr">Group by Extension</a></li>
 		</ul>
 	   </li>
-            <li>Settings 
-		<ul>
-		<li><a href="index.php?p=sip.users" >Sip users</a></li>
-		</ul>
-	    </li>
             <li>Diagnostics 
 		<ul>
 		<li><a href="index.php?p=diag.total" >Total</a></li>
