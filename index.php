@@ -2,7 +2,7 @@
 
 $page = '';
 
-if ($_GET["p"]=='') {
+if (empty($_GET["p"])) {
 	$page = 'rep.cdr';
 } else {
   	$page = $_GET["p"];
@@ -25,6 +25,11 @@ echo '<!DOCTYPE html>
 		<ul>
 		<li><a href="index.php?p=rep.cdr" >Call records</a></li>
 		<li><a href="index.php?p=rep.group.ext.cdr">Group by Extension</a></li>
+		</ul>
+	   </li>
+            <li>Queue 
+		<ul>
+		<li><a href="index.php?p=queue">Show status</a></li>
 		</ul>
 	   </li>
             <li>Diagnostics 

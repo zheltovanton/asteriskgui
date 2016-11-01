@@ -7,6 +7,8 @@
 		    <meta name="viewport" content="width=device-width" />
 		    <link rel="stylesheet" type="text/css" href="../public/css/jsgrid.css" />
 		    <link rel="stylesheet" type="text/css" href="../public/css/theme.css" />
+		    <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.css" />
+		    <link rel="stylesheet" type="text/css" href="../public/css/bootstrap-theme.css" />
 		    <link href="../public/css/style.css" rel="stylesheet" />
 		    <link href="../public/css/jquery-ui.css" rel="stylesheet" />
 		</head>
@@ -25,6 +27,7 @@
 		<script src="../public/js/jquery-ui.js"></script>
 		<script src="../public/js/date.format.js"></script>
 		<script src="../public/js/setting.js"></script>
+		<script src="../public/js/bootstrap.js"></script>
 		<script src="../public/js/json2csv.js"></script>';
 
 
