@@ -155,29 +155,17 @@ label.light {
   border-radius: 100%;
 }
 
-#editkoefDialog span.label
-{
-    display: inline-block;
-    float: left;
-    width: 180px;
-    padding-left: 15px;
+.queue_members ul li{
+  margin: 2px;
 }
-    
-#editkoefDialog input.koef_ya,
-#editkoefDialog input.koef_gett
-{
-    width: 48%;
-        box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    border: 1px solid #C2C2C2;
-    box-shadow: 1px 1px 4px #EBEBEB;
-    -moz-box-shadow: 1px 1px 4px #EBEBEB;
-    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    padding: 7px;
-    outline: none;
-    
+
+.config_panel{
+    padding: 4px;
+    margin: 10px 0;
+    background: #fcfcfc;
+    border: 1px solid #e9e9e9;
+    display: inline-block;
+}
+.config_panel label{
+    padding: 4px;
 }
