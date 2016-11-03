@@ -184,8 +184,9 @@ class QueueStatusRepository {
   	    	if (stripos($arr_rows[$i],"--END COMMAND--")!==false) break; //if find end message, then break 
 	    	if (stripos($arr_rows[$i],"Privilege: Command")!==false) continue;	
 	    	if (stripos($arr_rows[$i],"Response: Follows")!==false) continue; 
+	    	if (stripos($arr_rows[$i],"Members:")!==false) continue; 
   	    	$str=$arr_rows[$i];
-  	    	if (empty($str)) continue; //if find end message, then break 
+  	    	if (empty($str)) continue; //if find space string then skip line 
   	    	
             	$q = explode(" ", trim($str));
   	    	$queue_num = $q[0]; //
@@ -243,29 +244,40 @@ class QueueStatusRepository {
 					'state' => $state
    	   			));
 			} else { // Looking for callers
-				if (empty($str)) break; //if find end message, then break 
+				//if (empty($str)) break; //if find end message, then break 
 
-				if ((stripos($arr_rows[$n],"No Members")!==false)) {
-					$i++;
-					continue;
-				}
+				//if ((stripos($arr_rows[$n],"No Members")!==false)) {
+				//	$i++;
+				//	continue;
+				//}
 
 				//Search
-				if ( ($ffilter) && (stripos($str,$ffilter) === false) ) { $find=false; }
+				//if ( ($ffilter) && (stripos($str,$ffilter) === false) ) { $find=false; }
 		        
 				// Parse member string
-              	  	  	$q = explode(" ", trim($str));
-                		$caller = $q[0];
-				$time = $q[1];
+              	  	  	//$q = explode(" ", trim($str));
+                		//$caller = preg_replace("/[^0-9]/", '', $q[1]);
+				//$time = $q[3];
 
 				//made array of callers
-				if (!empty($str)) 
-				if ($find) array_push($queue,  array(
- 	 				'caller' => $caller,
-					'time' => $time
-   	   			));
+				//if (!empty($str)) 
+				//if ($find) array_push($queue,  array(
+ 	 			//	'caller' => $caller,
+				//	'time' => $time
+   	   			//));
 			}
 	    	} 
+  	    	for ($c = 1; $c < count($channels); $c++) {  
+	    		$str = $channels[$c];
+			if (($str["Application"]=="Queue")&&($str["Extension"]===$queue_num)) {  //
+				array_push($callers,  array(
+ 	 				'from' => $str["CallerIDname"],
+ 	 				'to' =>   $this -> SearchNumberInQueuestring($str["BridgedChannel"]),
+ 	 				'queue' => $str["Extension"],
+					'time' => $str["Duration"]
+   	   			));
+			}
+   	   	}
 	    	// push final record to array
 	    	array_push($json,  array(
 			'queue' => $queue_num,

@@ -33,6 +33,7 @@ $(function() {
 			for (var i = 0; i < counter; i++) {
 				var q = data[i].queue;
 				var m = data[i].members;
+				var c = data[i].callers;
 
 				if  ((!chk_empty)&&(m.length == 0)) continue; // need show empty queue or not
 
@@ -44,41 +45,58 @@ $(function() {
 		            		$('[id^=b'+q+']').append('<div class="queue_members" id="div'+q+'"></ul>');
                     			$('[id^=div'+q+']').append('<ul class="nav nav-pills" id="ul'+q+'"></ul>');
 				}
+
+		 		//add callers 'from' 'to' 'queue' 'time'
+		 		if ((c.length>0)&& ($('[id^=b'+q+']').length == 0))
+                    			$('[id^=div'+q+']').append('<ul class="nav nav-pills" id="ul_c'+q+'"></ul>');
+		 		for (var n = 0; n < c.length; n++) { 
+					if ($('[id^=c_li'+q+c[n].to+']').length == 0) {
+						$('[id^=ul_ñ'+q+']').append('<li id="ñ_li'+q+c[n].to+
+							'"><span id="c_s'+c[n].from + ' -> ' + c[n].to + ' : ' + c[n].time+'" class="label label-default">'+
+							li_text+'</span></li>');
+					} else {  // if caller already exist - change text 
+						$('[id^=c_s' + q + c[n].number+']').text(q+c[n].number + ' ' + c[n].time);
+					}
+				}
+
+
 				//add queue members
+				if ($('[id^=ul'+q+']').length == 0)
+                    			$('[id^=div'+q+']').append('<ul class="nav nav-pills" id="ul'+q+'"></ul>');
 				for (var n = 0; n < m.length; n++) { 
 					//check if member label exist, skip it 
-					if ($('[id^=li'+q+m[n].member+']').length == 0) {
+					if ($('[id^=li'+q+m[n].number+']').length == 0) {
 						var li_text='';
 
 						if (m[n].member == m[n].number) { li_text = m[n].member; }
 					 		else { li_text = m[n].member+' / '+m[n].number; }
 
 						if ((chk_na) && (m[n].state=='na')) {
-							$('[id^=ul'+q+']').append('<li id="li'+q+m[n].member+
-								'"><span id="s'+q+m[n].member+'" class="label label-default">'+
+							$('[id^=ul'+q+']').append('<li id="li'+q+m[n].number+
+								'"><span id="s'+q+m[n].number+'" class="label label-default">'+
 								li_text+'</span></li>');
 						}
 						if (m[n].state=='aviable') {
-							$('[id^=ul'+q+']').append('<li id="li'+q+m[n].member+
-								'"><span id="s'+q+m[n].member+'" class="label label-success">'+
+							$('[id^=ul'+q+']').append('<li id="li'+q+m[n].number+
+								'"><span id="s'+q+m[n].number+'" class="label label-success">'+
 								li_text+'</span></li>');
 						}
 						if (m[n].state=='busy') {
-							$('[id^=ul'+q+']').append('<li id="li'+q+m[n].member+
-								'"><span id="s'+q+m[n].member+'" class="label label-danger">'+
+							$('[id^=ul'+q+']').append('<li id="li'+q+m[n].number+
+								'"><span id="s'+q+m[n].number+'" class="label label-danger">'+
 								li_text+'</span></li>');
 						}
 					}
 					// change class if need
-					if ($('[id^=s'+q+m[n].member+']').length > 0) {
+					if ($('[id^=s'+q+m[n].number+']').length > 0) {
 						if (m[n].state=='na') {
-							$('[id^=s'+q+m[n].member+']').addClass("label label-default");
+							$('[id^=s'+q+m[n].number+']').addClass("label label-default");
 						}
 						if (m[n].state=='aviable') {
-							$('[id^=s'+q+m[n].member+']').addClass("label label label-success");
+							$('[id^=s'+q+m[n].number+']').addClass("label label label-success");
 						}
 						if (m[n].state=='busy') {
-							$('[id^=s'+q+m[n].member+']').addClass("label label-danger");
+							$('[id^=s'+q+m[n].number+']').addClass("label label-danger");
 						}
 					}
                     			//$('[id^=ul'+q+']').append('<li ><a href="#">Messages</a></li>');
