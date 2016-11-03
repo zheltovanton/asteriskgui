@@ -10,7 +10,7 @@ echo '
 </header>
 
 <div class="config_panel" id="config_panel">
-    <label><input id="na" type="checkbox" checked />Not active</label>
+    <label><input id="na" type="checkbox">Not active</label>
     <label><input id="empty" type="checkbox">Empty</label>
 </div>
 

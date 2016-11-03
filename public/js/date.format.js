@@ -35,6 +35,7 @@ function toMMSS(str) {
     return minutes+':'+seconds;
 }
 
+
 function mysqlTimeStampToDate(timestamp) {
    //function parses mysql datetime string and returns javascript Date object
    //input has to be in this format: 2007-06-05 15:26:02
