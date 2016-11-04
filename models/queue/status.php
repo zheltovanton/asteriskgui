@@ -9,6 +9,7 @@ class QueueStatusRepository {
 //   Callers:
 //      1. SIP/mts9164738575-0000217d (wait: 0:30, prio: 0)
 
+    // ----------------------------------------------------------------------
 
     private function SearchBusyInChannelList($channels,$number,$state){
 	for($i = 1; $i < count($channels); $i++) {
@@ -20,9 +21,29 @@ class QueueStatusRepository {
 	return $state;
     }
 
+    // ----------------------------------------------------------------------
+
+    private function SearchNumberInString($str){
+	$step3 = substr($str, 0, strpos($str,'@'));
+	$step4 = substr($step3, strpos($step3,'/')+1,15);
+	return $step4;	
+    }
+
+    // ----------------------------------------------------------------------
+
+    private function SearchNumberInQueuestring($str){
+	$step1 = explode('(',trim($str));
+	$step2 = explode(' ',trim($step1[1]));
+	$step3 = substr($step2[0], 0, strpos($step2[0],'@'));
+	$step4 = substr($step3, strpos($step2[0],'/')+1,15);
+	return $step4;	
+    }
+
+    // ----------------------------------------------------------------------
+
     private function SearchStatusInPeersList($peers,$number){
 	$state = 'na';
-	for($i = 1; $i < count($peers); $i++) {
+	for($i = 0; $i < count($peers); $i++) {
 		if ($peers[$i]["name"] == $number) {
 			if (stripos($peers[$i]["state"],"OK")!==false) {
 				$state = 'aviable';
@@ -32,6 +53,8 @@ class QueueStatusRepository {
 	}
 	return $state;
     }
+
+    // ----------------------------------------------------------------------
 
     private function getChannels() {
 
@@ -100,14 +123,7 @@ class QueueStatusRepository {
         return $json;	
     }
 
-
-    private function SearchNumberInQueuestring($str){
-	$step1 = explode('(',trim($str));
-	$step2 = explode(' ',trim($step1[1]));
-	$step3 = substr($step2[0], 0, strpos($step2[0],'@'));
-	$step4 = substr($step3, strpos($step2[0],'/')+1,15);
-	return $step4;	
-    }
+    // ----------------------------------------------------------------------
 
     private function getPeers() {
 	//send asterisk management command
@@ -148,6 +164,8 @@ class QueueStatusRepository {
 	//error_log("ast: ".$row.PHP_EOL);
         return $json2;	
     }
+
+    // ----------------------------------------------------------------------
 
     public function getAll($filter) {
 	// filter vars
@@ -243,36 +261,14 @@ class QueueStatusRepository {
  	 				'number' => $number,
 					'state' => $state
    	   			));
-			} else { // Looking for callers
-				//if (empty($str)) break; //if find end message, then break 
-
-				//if ((stripos($arr_rows[$n],"No Members")!==false)) {
-				//	$i++;
-				//	continue;
-				//}
-
-				//Search
-				//if ( ($ffilter) && (stripos($str,$ffilter) === false) ) { $find=false; }
-		        
-				// Parse member string
-              	  	  	//$q = explode(" ", trim($str));
-                		//$caller = preg_replace("/[^0-9]/", '', $q[1]);
-				//$time = $q[3];
-
-				//made array of callers
-				//if (!empty($str)) 
-				//if ($find) array_push($queue,  array(
- 	 			//	'caller' => $caller,
-				//	'time' => $time
-   	   			//));
-			}
+ 			}
 	    	} 
-  	    	for ($c = 1; $c < count($channels); $c++) {  
+  	    	for ($c = 0; $c < count($channels); $c++) {  
 	    		$str = $channels[$c];
 			if (($str["Application"]=="Queue")&&($str["Extension"]===$queue_num)) {  //
 				array_push($callers,  array(
  	 				'from' => $str["CallerIDname"],
- 	 				'to' =>   $this -> SearchNumberInQueuestring($str["BridgedChannel"]),
+ 	 				'to' =>   $this -> SearchNumberInString($str["BridgedChannel"]),
  	 				'queue' => $str["Extension"],
 					'time' => $str["Duration"]
    	   			));

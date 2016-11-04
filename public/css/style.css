@@ -155,8 +155,12 @@ label.light {
   border-radius: 100%;
 }
 
+.queue_members{
+  margin: 3px;
+}
+
 .queue_members ul li{
-  margin: 2px;
+  margin: 4px;
 }
 
 .config_panel{
