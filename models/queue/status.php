@@ -4,11 +4,6 @@ include dirname(__FILE__)."/../../db/asterisk.php";
 
 class QueueStatusRepository {
 
-//      Feofanova (Local/111@from-queue/n from hint:111@ext-local) with penalty 1 (ringinuse disabled) (Busy) has taken 16 calls (last was 380 secs ago)
-//      Ushakova (Local/110@from-queue/n from hint:110@ext-local) with penalty 1 (ringinuse disabled) (Not in use) has taken no calls yet
-//   Callers:
-//      1. SIP/mts9164738575-0000217d (wait: 0:30, prio: 0)
-
     // ----------------------------------------------------------------------
 
     private function SearchBusyInChannelList($channels,$number,$state){
