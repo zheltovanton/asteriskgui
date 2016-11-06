@@ -1,7 +1,9 @@
 # Asterisk.GUI
 
- This is the Javascript / HTML / CSS / Ajax related to asterisk app.
- Features:
+ This is the Javascript / HTML / CSS / Ajax related to asterisk app. 
+ Only for viewing settings and conditions, not to configure.
+
+# Features
  - CDR stat 
  - Show sip peers 
  - Show sip registry 
@@ -11,7 +13,7 @@
 
 # Version
 
-Current version 0.01beta
+Current version 0.1b 
  
 # Up and Running
 
