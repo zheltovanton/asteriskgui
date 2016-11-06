@@ -6,7 +6,7 @@
  - Show sip peers 
  - Show sip registry 
  - Show sip channel stats
- - Show Queues agents
+ - Queues panel: realtime agent status and calls
  - Show diag info from "core show ... "
 
 # Version
