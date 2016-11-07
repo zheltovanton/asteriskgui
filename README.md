@@ -2,6 +2,7 @@
 
  This is the Javascript / HTML / CSS / Ajax related to asterisk app. 
  Only for viewing settings and conditions, not to configure.
+ Screenshot from real system with Elastix in folder "screenshot".
 
 # Features
  - CDR stat 
@@ -10,6 +11,7 @@
  - Show sip channel stats
  - Queues panel: realtime agent status and calls
  - Show diag info from "core show ... "
+ - All tables support sorting, filtering and export to excel
 
 # Version
 
