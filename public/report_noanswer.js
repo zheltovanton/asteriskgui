@@ -25,7 +25,7 @@ $(function() {
                 loadData: function(filter) {
                     return $.ajax({
                         type: "GET",
-                        url: "../db/report/cdr/",
+                        url: "../db/report/no_answer/",
                         data: filter,
 			success:function(data) {
 			    	json_data = data;  //store to global var for exporting
@@ -59,9 +59,7 @@ $(function() {
 				month = myMonth(date); //data[i].calldate.dateparts[0];
 				year = myYear(date); //data[i].calldate.dateparts[0];
                                 if (data[i].recordingfile) {
-					if (data[i].recordingfile[0]!="/") {
-						data[i].recordingfile = year + "/" + month + "/" + day + "/" + data[i].recordingfile;
-					}
+					data[i].recordingfile = year + "/" + month + "/" + day + "/" + data[i].recordingfile;
 				}else{
 					
 				}

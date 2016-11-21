@@ -1,8 +1,6 @@
 <?php
 
-$config = include("../../db/config.php");
-
-class ReportCdr {
+class ReportNoAnswer {
 	public $calldate;
 	public $clid;
 	public $src;
@@ -13,7 +11,7 @@ class ReportCdr {
 	public $disposition;
 }
 
-class ReportCdrRepository {
+class ReportNoAnswerRepository {
 
     protected $db;
 
@@ -23,7 +21,7 @@ class ReportCdrRepository {
     }
 
      private function read($row) {
-        $result = new ReportCdr();
+        $result = new ReportNoAnswer();
 
         $result->calldate = $row["calldate"];
         $result->clid = $row["clid"];
@@ -65,7 +63,7 @@ class ReportCdrRepository {
 		and  (src like '%$src%')
 		and  (dst like '%$dst%')
 		and  (dcontext like '%$dcontext%')
-		and ( ( (dcontext<>'from-queue-exten-only') and(lastapp<>'PlayTones') ) or (LEFT(src , 1)='1')) 
+		and ( ( dcontext = 'ext-queues') and (dstchannel = '')) 
 		order by calldate desc";
         $q = $this->db->prepare($sql);
         $q->execute();
@@ -73,8 +71,7 @@ class ReportCdrRepository {
 
         $result = array();
         foreach($rows as $row) {
-
-            	array_push($result, $this->read($row));
+            array_push($result, $this->read($row));
         }
         return $result;
 	//echo $result;

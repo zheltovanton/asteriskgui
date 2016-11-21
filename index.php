@@ -2,7 +2,8 @@
 
 $page = '';
 
-if (empty($_GET["p"])) {
+
+if (empty($_GET["p"])) {     // if some page requested, then show it, else show page CDR
 	$page = 'rep.cdr';
 } else {
   	$page = $_GET["p"];
@@ -24,6 +25,7 @@ echo '<!DOCTYPE html>
             <li>Report 
 		<ul>
 		<li><a href="index.php?p=rep.cdr" >Call records</a></li>
+		<li><a href="index.php?p=rep.noanswer" >Not answered</a></li>
 		<li><a href="index.php?p=rep.group.ext.cdr">Group by Extension</a></li>
 		</ul>
 	   </li>
