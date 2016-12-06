@@ -52,6 +52,14 @@ h1 {
     font-weight: 300;
 }
 
+.aheader {
+    float:left;
+    margin: 4px 20px 4px 4px;
+    font-size: 24px;
+    font-family: 'Helvetica Neue Light', 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif, Arial;
+    font-weight: 300;
+}
+
 a {
     color: #00B7FF;
 }
@@ -163,13 +171,26 @@ label.light {
   margin: 4px;
 }
 
-.config_panel{
+.config_panel {
+    float:left;
     padding: 4px;
-    margin: 10px 0;
+    margin: 4px 0;
     background: #fcfcfc;
     border: 1px solid #e9e9e9;
     display: inline-block;
 }
 .config_panel label{
     padding: 4px;
+}
+
+
+.total {
+    position: fixed; 
+    top:0; 
+    right:0; 
+    z-index:490;
+    font-family: 'Segoe UI', Roboto, sans-serif, Helvetica, Arial;
+    font-size: 10px;
+    margin-bottom: -14px;
+    padding-left: 4px;
 }

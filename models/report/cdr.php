@@ -34,6 +34,9 @@ class ReportCdrRepository {
     	$result->billsec = $row["billsec"];
         $result->recordingfile = $row["recordingfile"];
         $result->disposition = $row["disposition"];
+	$result->dstchannel = $row["dstchannel"];
+	$result->lastapp = $row["lastapp"];
+	$result->lastdata = $row["lastdata"];
 
 	return $result;
     }
@@ -56,6 +59,9 @@ class ReportCdrRepository {
 		src,
 		dst,
 		dcontext,
+		dstchannel,
+		lastapp,
+		lastdata,
 		duration,
 		billsec, 
 		recordingfile,
