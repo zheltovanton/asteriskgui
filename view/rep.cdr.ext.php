@@ -5,9 +5,17 @@ require_once 'header.php';
 echo '
 <script src="../public/report_cdr_ext.js"></script>
 
-<header>
-    <h1>Report CDR</h1>
-</header>
+    <div class="aheader">
+	Report CDR
+    </div>
+
+    <div class="config_panel">
+	<form class="form-inline" onSubmit="return myRefresh();">
+		<label class="checkbox-inline">Dates <input type="text" class="form-control" id="daterange" value=""></label>
+		<label class="checkbox-inline">Text <input type="text" class="form-control" id="searchtext" value="" ></label>
+	</form>
+    </div>
+
 <div id="but_excel"> 
 	<a href="#"><img src="../public/css/images/csv-icon.png"></a>
 </div> 

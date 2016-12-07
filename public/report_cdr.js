@@ -50,7 +50,7 @@ $(function() {
 
 
     $("#but_excel a").click(function() {
-    	JSONToCSVConvertor(json_data, "CDR Report", true);
+        window.location.replace("../db/report/cdr/download.php?start="+start1+"&end="+end1+"&text="+text1);
     });
 
 	DATA = null;	
