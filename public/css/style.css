@@ -172,7 +172,6 @@ label.light {
 }
 
 .config_panel {
-    float:left;
     padding: 4px;
     margin: 4px 0;
     background: #fcfcfc;
