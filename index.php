@@ -25,6 +25,7 @@ echo '<!DOCTYPE html>
             <li>Report 
 		<ul>
 		<li><a href="index.php?p=rep.cdr" >Call records</a></li>
+		<li><a href="index.php?p=rep.cdr.ext" >Call records extended</a></li>
 		<li><a href="index.php?p=rep.noanswer" >Not answered</a></li>
 		<li><a href="index.php?p=rep.group.ext.cdr">Group by Extension</a></li>
 		</ul>

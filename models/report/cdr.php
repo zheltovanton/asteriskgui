@@ -11,6 +11,9 @@ class ReportCdr {
 	public $duration;
 	public $billsec; 
 	public $disposition;
+	public $dstchannel;
+	public $lastapp;
+	public $lastdata;
 }
 
 class ReportCdrRepository {
@@ -42,17 +45,25 @@ class ReportCdrRepository {
     }
 
     public function getAll($filter) {
-	$clid = $filter["clid"];
-	$src = $filter["src"];
-	$dst = $filter["dst"];
-	$dcontext = $filter["dcontext"];
-	//$mon = $this->monitor;
-        $calldate = implode(",", $filter["calldate"]);
-        $calldate = substr($calldate, 0, strpos($calldate, '('));
-	$calldate = date("Y-m-d", strtotime($calldate));
-	if ($calldate=="1970-01-01") {
-		$calldate=date("Y-m-d");
+	$text = $filter["text"];
+
+        //$callstart = implode(",", $filter["start"]);
+        //$callstart = substr($callstart, 0, strpos($callstart, '('));
+	$callstart = date("Y-m-d", strtotime($filter["start"]));
+	if ($callstart=="1970-01-01") {
+		$callstart=date("Y-m-d");
 	}
+        $start = $callstart;
+
+        //$callend = implode(",", $filter["end"]);
+        //$callend = substr($callend, 0, strpos($callend, '('));
+	$callend = date("Y-m-d", strtotime($filter["end"]));
+	if ($callend=="1970-01-01") {
+		$callend=date("Y-m-d");
+	}
+        $end = $callend;
+
+
         $sql = "SELECT 
 		calldate,
 		clid,
@@ -66,11 +77,8 @@ class ReportCdrRepository {
 		billsec, 
 		recordingfile,
 		disposition
-		FROM cdr where (calldate BETWEEN '$calldate 00:00:00' AND '$calldate 23:59:59')
-		and  (clid like '%$clid%')
-		and  (src like '%$src%')
-		and  (dst like '%$dst%')
-		and  (dcontext like '%$dcontext%')
+		FROM cdr where (calldate BETWEEN '$start 00:00:00' AND '$end 23:59:59')
+		and (concat(clid, src, dst, dcontext, dstchannel, lastapp, lastdata) like '%$text%')
 		and ( ( (dcontext<>'from-queue-exten-only') and(lastapp<>'PlayTones') ) or (LEFT(src , 1)='1')) 
 		order by calldate desc";
         $q = $this->db->prepare($sql);
