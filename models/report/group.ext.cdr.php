@@ -46,7 +46,6 @@ class ReportGroupExtCdrRepository {
 		FROM cdr where (calldate BETWEEN '$calldate 00:00:00' AND '$calldate 23:59:59')
 		     and  (src like '%$src%')
 		     and (CAST(src AS UNSIGNED)<100000)
-		     and ( ( (dcontext<>'from-queue-exten-only') and(lastapp<>'PlayTones') )) 
 		group by src 
 		order by src";
         $q = $this->db->prepare($sql);

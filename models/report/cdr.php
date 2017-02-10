@@ -79,7 +79,6 @@ class ReportCdrRepository {
 		disposition
 		FROM cdr where (calldate BETWEEN '$start 00:00:00' AND '$end 23:59:59')
 		and (concat(clid, src, dst, dcontext, dstchannel, lastapp, lastdata) like '%$text%')
-		and ( ( (dcontext<>'from-queue-exten-only') and(lastapp<>'PlayTones') ) or (LEFT(src , 1)='1')) 
 		order by calldate desc";
         $q = $this->db->prepare($sql);
         $q->execute();
