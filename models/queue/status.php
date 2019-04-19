@@ -263,7 +263,7 @@ class QueueStatusRepository {
             }
             for ($c = 0; $c < count($channels); $c++) {
                 $str = $channels[$c];
-                if (($str["Application"]=="AppQueue")&&($str["Exten"]===$queue_num)) {  //
+                if (($str["Application"]=="AppQueue")&&($str["Exten"]==$queue_num)) {  //
                     array_push($callers,  array(
                         'from' => $str["ConnectedLineNum"],
                         'state' => $str["ChannelStateDesc"],
